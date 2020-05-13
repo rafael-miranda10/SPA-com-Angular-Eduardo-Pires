@@ -1,0 +1,71 @@
+<div class="container main-container">
+    <h3>Interpolation</h3>
+    <p>O número de cliques é: {{contadorClique}}</p>
+
+    <br>
+    <br>
+    <h3>Interpolation + ngClass</h3>
+    <p [ngClass]="{
+        'text-secondary':contadorClique < 3,
+        'text-success':contadorClique >= 3,
+        'text-warning':contadorClique >= 5,
+        'text-danger':contadorClique >= 9
+    }">O número de cliques é: {{contadorClique}}</p>
+    <br>
+    <br>
+    <h3>Property Binding</h3>
+
+    <button class="btn btn-info" [disabled]="contadorClique >= 10">Info</button>
+
+    <br>
+    <br>
+
+    <img [src]="urlImagem" height="50px" width="50px" />
+
+    <br>
+    <br>
+
+    <h3>Event Binding</h3>
+    <button class="btn btn-warning" (click)='adicionarClique()'>Clique-me</button>&nbsp;
+    <button class="btn btn-success" (click)='resetarClique()' [disabled]='contadorClique < 10'>Zerar Contador</button>
+
+    <br>
+    <br>
+
+    <h3>Two-way Binding Jeito 1</h3>
+      <input type="text" (keyup)='keyUp($event)' placeholder="Digite seu nome">
+     <br>
+     <br>
+     <label>Seu nome é: {{nome1}}</label> 
+
+    <br>
+    <br>
+
+    <h3>Two-way Binding Jeito 2</h3>
+    <input type="text" [ngModel]='nome2' (ngModelChange)='nome2 = $event' placeholder="Digite seu nome">
+    <br>
+    <br>
+    <label>Seu nome é: {{nome2}}</label>
+
+    <br>
+    <br>
+
+    <h3>Two-way Binding Jeito 3 - Melhor</h3>
+    <input type="text" [(ngModel)]='nome3' placeholder="Digite seu nome">
+    <br>
+    <br>
+    <!-- Da para colocar uma classe dinamicamente -->
+    <!-- Nesse caso foi colocado na classe só para exemplificar o que da para fazer -->
+    <!-- Se digitar no input na tela o nome da classe de um botão ele vira um botão -->
+    <label class="{{nome3}}">Seu nome é: {{nome3}}</label>
+
+    <br>
+    <br>
+
+    <h3>Diretiva ngClass Dinamicamente</h3>
+    <input type="text" [(ngModel)]='nome4' placeholder="Digite seu nome">
+    <br>
+    <br>
+    <label [ngClass]="nome4">Seu nome é: {{nome4}}</label>
+
+</div>>
